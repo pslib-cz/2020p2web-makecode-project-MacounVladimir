@@ -322,4 +322,3 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Bad, function (sprite, otherSpri
 info.onCountdownEnd(function() { 
     game.reset()
 })
-
