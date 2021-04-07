@@ -20,8 +20,9 @@ namespace SpriteKind {
 let PC: Sprite = null
 let Ukol: Sprite = null
 
-//Uvodni dialog
+//Uvodni dialogy
 game.showLongText("Hlavním cílem je vyhnout se prokrastinaci ve formě různých pokušení a splnit VŠECHNY úkoly v časovém pressu!", DialogLayout.Center)
+game.showLongText("WSAD - pohyb          SPACEBAR - skok", DialogLayout.Bottom)
 
 //Sprity
 //Hrac a jeho "animace"
@@ -44,11 +45,11 @@ game.onUpdate(function () {
     else if (myHrac.vy > 0 && myHrac.vx != 0) {
         myHrac.setImage(assets.image`HracPad`)
     }
-    
+    /*
     if (myHrac.vx != 0) {
         console.log("Chodím!")
     }
-    
+    */
     //console.log(Hrac.vx)
     //Otoci hrace, pokud jde doleva, pak ho vrati. - Flip
     if (myHrac.vx < 0) {
@@ -84,7 +85,7 @@ game.onUpdateInterval(1000, function() {
     }
 })
 
-//Spawn polozek
+//Spawn položek
 //Záporné
 //pc
 for (let value of tiles.getTilesByType(assets.tile`pcspawner`)) {
