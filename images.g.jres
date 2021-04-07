@@ -1,0 +1,27 @@
+{
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAPDQ3QAAAAAA8N3djYgNAADw3d2NiMz8APDd3Y2IzPwA8P2xjYjMAADw/bmNiAwAAPDd3Y2IDAAA/93djYjMAAD/3d2NiMz8AP/9sY2IzPwA//25jYgNAAD/3d0NAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Hrac"
+    },
+    "image3": {
+        "data": "hwQQABAAAAAAAAANAAAAAAAAAIAAAAAAAPDQ3QgAAAAA8N3djQAAAPDw3d2NiMwAAP/d3Y2IzAwA//2xjYjM/ADw/bmNiAz88PDd3Y2IDAAA/93djYgMAAD/3d2NiMwAAP/9sY2IzAwP//25jQDA/PD/3d0NAAD8AAAAgAAAAAAAAAANAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "HracPad"
+    },
+    "image4": {
+        "data": "hwQQABAAAAAAAAANAAAAAAAAAIAAAAAAAPDQ3QgAAAAA8N3djQDA/PDw3d2NiMz8AP/d3Y2IzAAA//2xjYgMAADw/bmNiAwA8PDd3Y2IDAAA/93djYgMAAD/3d2NiMwAAP/9sY2IzPwP//25jQDA/PD/3d0NAAAAAAAAgAAAAAAAAAANAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "HracPad1"
+    },
+    "image5": {
+        "data": "hwQQABAAAAAAAAANAAAAAAAAAIAAAAAAAADf3QgAAAAA8N3djQAA/ADw3d2NiMz8APDd3Y2IzAAA8P2xjYgMAADw/bmNiAwAAPDd3Y2IDAAA/93djYgM/AD/3d2NiMz8AP/9sY2IzAAA//25jQAAAAD/3d0NAAAAAAAAgAAAAAAAAAANAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "HracHop"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}

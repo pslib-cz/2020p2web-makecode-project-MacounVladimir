@@ -1,4 +1,4 @@
-
+//Prostor pro proměnné
 //Čas
 let duration = 30
 //Skóre
@@ -25,26 +25,7 @@ game.showLongText("Hlavním cílem je vyhnout se prokrastinaci ve formě různý
 
 //Sprity
 //Hrac a jeho "animace"
-//let myHrac = sprites.create(assets.image`Hrac`, SpriteKind.Player)
-let myHrac = sprites.create(img`
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . 2 2 2 . . . . . . .
-    . . . . . . 2 2 2 . . . . . . .
-    . . . . . . 2 2 2 . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-    . . . . . . . . . . . . . . . .
-`,SpriteKind.Player)
-
+let myHrac = sprites.create(assets.image`Hrac`, SpriteKind.Player)
 //----------------------------------
 //Koncepty
 //let myDuties = sprites.create(assets.image`duty`,SpriteKind.Enemy)
@@ -57,19 +38,15 @@ game.onUpdate(function () {
     if (myHrac.vy < 0 ) {
         myHrac.setImage(assets.image`HracHop`)
     }
-
-    else if (myHrac.vy > 0) {
+    else if (myHrac.vy > 0 && myHrac.vx == 0){
+        myHrac.setImage(assets.image`HracPad1`)
+    }
+    else if (myHrac.vy > 0 && myHrac.vx != 0) {
         myHrac.setImage(assets.image`HracPad`)
     }
     
     if (myHrac.vx != 0) {
         console.log("Chodím!")
-        animation.runImageAnimation(
-            myHrac,
-            assets.animation`Walk`, //frames
-            100, //duration every frame
-            false //loop yes
-            )
     }
     
     //console.log(Hrac.vx)
