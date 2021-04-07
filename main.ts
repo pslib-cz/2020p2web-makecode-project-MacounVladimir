@@ -198,24 +198,7 @@ for (let value of tiles.getTilesByType(assets.tile`taskspawner`)) {
     //Animace úkolu
     animation.runImageAnimation(
     Ukol,
-    [img`
-        . . . . . . . . . . . . . . . .
-        . . . . . . . . . . . . . . . .
-        . . . 1 1 1 1 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 1 f f f 1 d . . .
-        . . . 1 1 f f f 1 1 1 1 d . . .
-        . . . 1 1 1 1 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 f f 1 1 1 d . . .
-        . . . 1 1 f f 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 f f 1 1 1 d . . .
-        . . . 1 1 1 f 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 1 1 1 1 1 d . . .
-        . . . 1 1 1 1 1 1 1 1 1 d . . .
-    `,img`
+    [assets.image`task`,img`
         . . . . . . . . . . . . . . . .
         . . . 1 1 1 1 1 1 1 1 1 d . . .
         . . . 1 1 1 1 1 1 1 1 1 d . . .

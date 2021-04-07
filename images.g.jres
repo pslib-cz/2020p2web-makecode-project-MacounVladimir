@@ -19,6 +19,16 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "HracHop"
     },
+    "image6": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREQARERERERERABHxEfEREREAEfER8RHxEQAR8REfER8RABEfER8RHxEAER8REREREQARHxERERERABEREREREREA3d3d3d3d3QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "task"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREREREREQARERERERERABHxEfEREREAEfER8RHxEQAR8REfER8RABEfER8RHxEAER8REREREQARHxERERERABEREREREREA3d3d3d3d3QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "task"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
