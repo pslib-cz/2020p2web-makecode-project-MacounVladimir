@@ -15,6 +15,7 @@ let test = 0;
 namespace SpriteKind {
     export const Bad = SpriteKind.create()
     export const Good = SpriteKind.create()
+    export const Subbad = SpriteKind.create()
 }
 
 let PC: Sprite = null
@@ -23,15 +24,10 @@ let Ukol: Sprite = null
 //Uvodni dialogy
 game.showLongText("Hlavním cílem je vyhnout se prokrastinaci ve formě různých pokušení a splnit VŠECHNY úkoly v časovém pressu!", DialogLayout.Center)
 game.showLongText("WSAD - pohyb          SPACEBAR - skok", DialogLayout.Bottom)
-
 //Sprity
 //Hrac a jeho "animace"
 let myHrac = sprites.create(assets.image`Hrac`, SpriteKind.Player)
-//----------------------------------
-//Koncepty
-//let myDuties = sprites.create(assets.image`duty`,SpriteKind.Enemy)
-//myDuties.follow(myHrac)
-//----------------------------------
+//myHrac.say("Pohybuji se WSAD a skacu SPACEBAREM!", 3500)
 
 game.onUpdate(function () {
     myHrac.setImage(assets.image`Hrac`)
@@ -275,25 +271,21 @@ for (let value of tiles.getTilesByType(assets.tile`taskspawner`)) {
     tiles.setTileAt(value, assets.tile`transparency16`)
 }
 
-//Urceni prohry
-scene.onOverlapTile(SpriteKind.Player, assets.tile`lol`, function (sprite, location) {
-    game.splash("Spadl jsi do lolka.")
-    game.over(false)
-})
-
 //Pozitivní položka
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Good, function (sprite, otherSprite) {
     game.showLongText("Splnil jsi podstatnou činnost, máš nějaký čas k dobru.", DialogLayout.Top)
-    info.player1.changeScoreBy(1)
-    goodscore = goodscore + 1;
+    //myHrac.say("Produktivita stonks", 1000)
+    info.player1.changeScoreBy(15)
+    goodscore = goodscore + 15;
     otherSprite.destroy()
     music.baDing.play()
+
     //Čas
     duration = duration + 3;
     info.stopCountdown()
     info.startCountdown(duration)
     //Urceni vyhry
-    if (goodscore == taskcounter) {
+    if (goodscore == taskcounter * 15) {
         //Zaverecny dialog
         game.showLongText("Dokončil jsi všechnu svou práci v čas a odolal jsi prokrastinaci! Gratuluji!", DialogLayout.Top)
         game.over(true)
@@ -303,11 +295,16 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Good, function (sprite, otherSpr
 //Negativní položka
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Bad, function (sprite, otherSprite) {
     game.showLongText("Zase jsi do toho spadnul.", DialogLayout.Top)
-    info.player1.changeScoreBy(-1)
-    badscore = badscore - 1;
+    info.player1.changeScoreBy(-10)
+    badscore = badscore - 10;
     otherSprite.destroy()
     music.smallCrash.play()
     
+    //Koncept - vytvoření pronásledujících ovladačů
+    let myHricky = sprites.create(assets.image`ovladac`, SpriteKind.Subbad)
+    myHricky.setPosition(myHrac.x + randint(0, 100), myHrac.x - 100)
+    myHricky.follow(myHrac, 50)
+
     //Urceni prohry
     if (duration <= 10){
         game.showLongText("Flákal ses a nestihl jsi své povinnosti.", DialogLayout.Bottom)
@@ -318,6 +315,20 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Bad, function (sprite, otherSpri
     duration = duration - 10;
     info.stopCountdown()
     info.startCountdown(duration)
+})
+
+//Negativní podpoložka
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Subbad, function (sprite, otherSprite) {
+    info.player1.changeScoreBy(-5)
+    badscore = badscore - 5;
+    otherSprite.destroy()
+    music.smallCrash.play()
+})
+
+//Urceni prohry
+scene.onOverlapTile(SpriteKind.Player, assets.tile`lol`, function (sprite, location) {
+    game.splash("Spadl jsi do lolka.")
+    game.over(false)
 })
 
 info.onCountdownEnd(function() { 

@@ -3,7 +3,8 @@
     "version": "1.0.1",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0"
     },
     "files": [
         "main.ts",
