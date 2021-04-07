@@ -21,9 +21,12 @@ namespace SpriteKind {
 let PC: Sprite = null
 let Ukol: Sprite = null
 
+//------------------------------------------------------
 //Uvodni dialogy
-game.showLongText("Hlavním cílem je vyhnout se prokrastinaci ve formě různých pokušení a splnit VŠECHNY úkoly v časovém pressu!", DialogLayout.Center)
+game.showLongText("Hlavním cílem je vyhnout se prokrastinaci ve formě různých pokušení a splnit úplně VŠECHNY úkoly v časovém pressu!", DialogLayout.Center)
+game.showLongText("Pokud se dostanete na PC, ubere vám to podstatné množství času. :)", DialogLayout.Bottom)
 game.showLongText("WSAD - pohyb          SPACEBAR - skok", DialogLayout.Bottom)
+//------------------------------------------------------
 //Sprity
 //Hrac a jeho "animace"
 let myHrac = sprites.create(assets.image`Hrac`, SpriteKind.Player)
@@ -53,6 +56,8 @@ game.onUpdate(function () {
     }
 })
 
+//------------------------------------------------------
+
 //Vytvoření hráče a základní hrací plochy
 info.player1.setScore(0)
 controller.moveSprite(myHrac, 100, 0)
@@ -80,112 +85,8 @@ game.onUpdateInterval(1000, function() {
         game.over(false)
     }
 })
-
+//------------------------------------------------------
 //Spawn položek
-//Záporné
-//pc
-for (let value of tiles.getTilesByType(assets.tile`pcspawner`)) {
-    pccounter = pccounter + 1;
-    //Vytvoření PC
-    PC = sprites.create(img`
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
-        1 6 7 7 6 7 7 6 7 7 6 6 6 6 6 1
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-        1 c b c b c b c b c b b c c c 1
-        1 b c b c b c b c b b b b c b 1
-        1 c b c b c b c b c b b c b c 1
-        1 b c c c c c b c b b b b c b 1
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-    `, SpriteKind.Bad)
-
-    //Animace PC
-    animation.runImageAnimation(
-    PC,
-    [img`
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 7 7 6 7 7 6 7 7 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 c b c b c b c b c b b c c c 1 
-        1 b c b c b c b c b b b b c b 1 
-        1 c b c b c b c b c b b c b c 1 
-        1 b c c c c c b c b b b b c b 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        `,img`
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 7 7 6 7 7 6 7 7 6 7 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 c b c b c b c b c b b c c c 1 
-        1 b c b c b c b c b b b b c b 1 
-        1 c b c b c b c b c b b c b c 1 
-        1 b c c c c c b c b b b b c b 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        `,img`
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 7 7 6 7 7 6 7 7 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 c b c b c b c b c b b c c c 1 
-        1 b c b c b c b c b b b b c b 1 
-        1 c b c b c b c b c b b c b c 1 
-        1 b c c c c c b c b b b b c b 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        `,img`
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 7 7 6 7 7 6 7 7 6 7 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        1 c b c b c b c b c b b c c c 1 
-        1 b c b c b c b c b b b b c b 1 
-        1 c b c b c b c b c b b c b c 1 
-        1 b c c c c c b c b b b b c b 1 
-        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
-        `],
-    750,
-    true
-    )
-
-    tiles.placeOnTile(PC, value)
-    tiles.setTileAt(value, assets.tile`transparency16`)
-}
-
 //Kladné
 //task
 for (let value of tiles.getTilesByType(assets.tile`taskspawner`)) {
@@ -292,6 +193,110 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Good, function (sprite, otherSpr
 }
 })
 
+//-------------------------------
+//Záporné
+//PC
+for (let value of tiles.getTilesByType(assets.tile`pcspawner`)) {
+    pccounter = pccounter + 1;
+    //Vytvoření PC
+    PC = sprites.create(img`
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
+        1 6 7 7 6 7 7 6 7 7 6 6 6 6 6 1
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+        1 c b c b c b c b c b b c c c 1
+        1 b c b c b c b c b b b b c b 1
+        1 c b c b c b c b c b b c b c 1
+        1 b c c c c c b c b b b b c b 1
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+    `, SpriteKind.Bad)
+
+    //Animace PC
+    animation.runImageAnimation(
+    PC,
+    [img`
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 7 7 6 7 7 6 7 7 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 c b c b c b c b c b b c c c 1 
+        1 b c b c b c b c b b b b c b 1 
+        1 c b c b c b c b c b b c b c 1 
+        1 b c c c c c b c b b b b c b 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        `,img`
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 7 7 6 7 7 6 7 7 6 7 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 c b c b c b c b c b b c c c 1 
+        1 b c b c b c b c b b b b c b 1 
+        1 c b c b c b c b c b b c b c 1 
+        1 b c c c c c b c b b b b c b 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        `,img`
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 7 7 6 7 7 6 7 7 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 c b c b c b c b c b b c c c 1 
+        1 b c b c b c b c b b b b c b 1 
+        1 c b c b c b c b c b b c b c 1 
+        1 b c c c c c b c b b b b c b 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        `,img`
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 7 7 6 7 7 6 7 7 6 7 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 6 6 6 6 6 6 6 6 6 6 6 6 6 6 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        1 c b c b c b c b c b b c c c 1 
+        1 b c b c b c b c b b b b c b 1 
+        1 c b c b c b c b c b b c b c 1 
+        1 b c c c c c b c b b b b c b 1 
+        1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 
+        `],
+    750,
+    true
+    )
+
+    tiles.placeOnTile(PC, value)
+    tiles.setTileAt(value, assets.tile`transparency16`)
+}
 //Negativní položka
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Bad, function (sprite, otherSprite) {
     game.showLongText("Zase jsi do toho spadnul.", DialogLayout.Top)
@@ -302,7 +307,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Bad, function (sprite, otherSpri
     
     //Koncept - vytvoření pronásledujících ovladačů
     let myHricky = sprites.create(assets.image`ovladac`, SpriteKind.Subbad)
-    myHricky.setPosition(myHrac.x + randint(0, 100), myHrac.x - 100)
+    myHricky.setPosition(myHrac.x - randint(0, 100), myHrac.x - 100)
     myHricky.follow(myHrac, 50)
 
     //Urceni prohry
@@ -322,9 +327,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Subbad, function (sprite, otherS
     info.player1.changeScoreBy(-5)
     badscore = badscore - 5;
     otherSprite.destroy()
-    music.smallCrash.play()
+    music.knock.play()
 })
-
+//------------------------------------------------------
 //Urceni prohry
 scene.onOverlapTile(SpriteKind.Player, assets.tile`lol`, function (sprite, location) {
     game.splash("Spadl jsi do lolka.")
