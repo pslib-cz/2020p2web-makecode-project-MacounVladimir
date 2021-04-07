@@ -282,7 +282,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`lol`, function (sprite, locat
 
 //Pozitivní položka
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Good, function (sprite, otherSprite) {
-    game.splash("Splnil jsi podstatnou činnost, máš nějaký čas k dobru.")
+    game.showLongText("Splnil jsi podstatnou činnost, máš nějaký čas k dobru.", DialogLayout.Top)
     info.player1.changeScoreBy(1)
     goodscore = goodscore + 1;
     otherSprite.destroy()
@@ -301,7 +301,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Good, function (sprite, otherSpr
 
 //Negativní položka
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Bad, function (sprite, otherSprite) {
-    game.splash("Zase jsi do toho spadnul.")
+    game.showLongText("Zase jsi do toho spadnul.", DialogLayout.Top)
     info.player1.changeScoreBy(-1)
     badscore = badscore - 1;
     otherSprite.destroy()
@@ -309,7 +309,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Bad, function (sprite, otherSpri
     
     //Urceni prohry
     if (duration <= 10){
-        game.splash("Flákal ses, nestihl jsi své povinnosti.")
+        game.showLongText("Flákal ses a nestihl jsi své povinnosti.", DialogLayout.Bottom)
         game.over(false)
     }
 
